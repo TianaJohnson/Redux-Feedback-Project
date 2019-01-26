@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import Card from '@material-ui/core/Card';
-// import { Typography } from '@material-ui/core';
-// import CardContent from '@material-ui/core/CardContent';
+import Card from '@material-ui/core/Card';
+import { Typography, CardActions } from '@material-ui/core';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+
 
 class Feelings extends Component {
     // this.state.feelingStatus
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-            feelingsStatus: 0 
+            feelingsStatus: 0
         }
     }
 
@@ -21,32 +23,45 @@ class Feelings extends Component {
     }
     // click handler to update feelings to append on the Results
     clickToUpdateFellings = (event) => {
-        const action = { type: 'SET_FEELINGS',
-                        payload: this.state.feelingsStatus,
-                    };
-                    this.props.dispatch(action);
-                    this.setState({ 
-                    feelingsStatus: '',
-                })
-                this.props.history.push('/');
+        const action = {
+            type: 'SET_FEELINGS',
+            payload: this.state.feelingsStatus,
+        };
+        this.props.dispatch(action);
+        this.setState({
+            feelingsStatus: '',
+        })
+        this.props.history.push('/');
     }
 
 
 
 
     render() {
+        
         return (
-            <form onSubmit={this.clickToUpdateFellings}>
-             <input onChange={this.updateFeelings} type="number"/> 
-                <br />
-                <input type="submit" value="Next" />
-            </form>
+            <Card className="feelings-container">
+                <CardContent>
+                    <Typography component="h2">
+                        
+                        <h2>How are you feeling?</h2>
+                    </Typography>
+                    <Typography component="p">
+                        <input onChange={this.updateFeelings} type="number"></input>
+                    </Typography>
+                    <CardActions >
+                        <Button className="fellings-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateFellings}>
+                            Next
+                        </Button>
+                    </CardActions>
+                </CardContent>
+            </Card>
         )
-     }
-
-
     }
-    const mapReduxStoreToProps = (reduxStore) => {
-        return { reduxStore: reduxStore };
-    } //end class component
+
+
+}
+const mapReduxStoreToProps = (reduxStore) => {
+    return { reduxStore: reduxStore };
+} //end class component
 export default connect(mapReduxStoreToProps)(Feelings)
