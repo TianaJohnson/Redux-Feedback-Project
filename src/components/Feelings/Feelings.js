@@ -42,14 +42,16 @@ class Feelings extends Component {
         return (
             <Card className="feelings-container">
                 <CardContent>
-                    <Typography component="h2">
-                        
+                    <Typography>                  
                         <h2>How are you feeling?</h2>
                     </Typography>
+                    <br/>
                     <Typography component="p">
                         <input onChange={this.updateFeelings} type="number"></input>
                     </Typography>
-                    <CardActions >
+                    <br/>
+                    <br/>
+                    <CardActions style={{justifyContent: 'center'}}>
                         <Button className="fellings-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateFellings}>
                             Next
                         </Button>

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
-import { Typography } from '@material-ui/core';
+import { Typography, CardActions } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
 
 class Results extends Component {
 
@@ -27,6 +28,12 @@ class Results extends Component {
                             <Typography component="p">
                             Comments:  
                             </Typography> 
+                            <br/>
+                            <CardActions style={{justifyContent: 'center'}}>
+                            <Button variant="contained" color="secondary" disabled className="Submit-btn">
+                            Submit
+                            </Button>
+                        </CardActions>
                 </CardContent>
             </Card>
 
