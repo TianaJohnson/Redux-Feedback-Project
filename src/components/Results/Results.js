@@ -6,6 +6,12 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 
 class Results extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            feedbackFinished: false,
+        }
+    }
 
 
     render() {

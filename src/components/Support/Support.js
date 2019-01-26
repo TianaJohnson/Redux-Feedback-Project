@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import { Typography, CardActions } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+import Results from './../Results/Results.js'; 
 
 
 class Support extends Component {
@@ -40,6 +41,7 @@ class Support extends Component {
     render() {
         
         return (
+            <Card>
             <Card className="support-container">
                 <CardContent>
                     <Typography>                  
@@ -58,6 +60,9 @@ class Support extends Component {
                     </CardActions>
                 </CardContent>
             </Card>
+            <Results/>
+            </Card>
+        
         )
     }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route} from 'react-router-dom';
 import Feelings from './../Feelings/Feelings.js'; //Feelings page added
 import Understanding from './../Understanding/Understanding.js';//Understanding page added
 import Support from './../Support/Support.js'; //Support page added
@@ -24,7 +24,8 @@ class App extends Component {
             <Route exact path="/understanding" component={Understanding}/>
             <Route exact path="/support" component={Support}/>
             <Route exact path="/comments" component={Comments}/>
-            <Results/>
+            <Route exact path="/results" component={Results}/>
+            {/* <Results/> */}
             </div>
         </Router>
       </div>

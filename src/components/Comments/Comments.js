@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import { Typography, CardActions } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-
+import Results from './../Results/Results.js';
 
 class Comments extends Component {
     // this.state.commentStatus
@@ -22,7 +22,7 @@ class Comments extends Component {
         })
     }
     // click handler to update comment to append on the Results
-    clickToUpdateFSupport = (event) => {
+    clickToUpdateComment = (event) => {
         const action = {
             type: 'SET_COMMENT',
             payload: this.state.commentStatus,
@@ -40,6 +40,7 @@ class Comments extends Component {
     render() {
         
         return (
+            <Card>
             <Card className="comment-container">
                 <CardContent>
                     <Typography>                  
@@ -53,12 +54,15 @@ class Comments extends Component {
                     <br/>
                     <br/>
                     <CardActions style={{justifyContent: 'center'}}>
-                        <Button className="comment-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateFellings}>
+                        <Button className="comment-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateComment}>
                             Next
                         </Button>
                     </CardActions>
                 </CardContent>
             </Card>
+            <Results/>
+            </Card>
+            
         )
     }
 

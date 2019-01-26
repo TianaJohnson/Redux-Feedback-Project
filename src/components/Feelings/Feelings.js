@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import { Typography, CardActions } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+import Results from './../Results/Results.js';
 
 
 class Feelings extends Component {
@@ -40,6 +41,7 @@ class Feelings extends Component {
     render() {
         
         return (
+            <Card>
             <Card className="feelings-container">
                 <CardContent>
                     <Typography>                  
@@ -57,7 +59,18 @@ class Feelings extends Component {
                         </Button>
                     </CardActions>
                 </CardContent>
+                </Card>
+                <Results/>
             </Card>
+
+            // Why doesnt this work? I tried as just a div aswell
+            // <Card>
+            //     <CardContent>
+            //         <Results/>
+            //     </CardContent>
+            // </Card>
+
+        
         )
     }
 

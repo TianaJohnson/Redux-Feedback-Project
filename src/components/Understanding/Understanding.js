@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import { Typography, CardActions } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
+import Results from './../Results/Results.js';
 
 
 class Understanding extends Component {
@@ -38,25 +39,28 @@ class Understanding extends Component {
 
 
     render() {
-        
+
         return (
-            <Card className="understanding-container">
-                <CardContent>
-                    <Typography>                  
-                        <h2>How well are you understanding the material?</h2>
-                    </Typography>
-                    <br/>
-                    <Typography>
-                        <input onChange={this.updateUnderstanding} type="number"></input>
-                    </Typography>
-                    <br/>
-                    <br/>
-                    <CardActions style={{justifyContent: 'center'}}>
-                        <Button className="understanding-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateUnderstanding}>
-                            Next
+            <Card>
+                <Card className="understanding-container">
+                    <CardContent>
+                        <Typography>
+                            <h2>How well are you understanding the material?</h2>
+                        </Typography>
+                        <br />
+                        <Typography>
+                            <input onChange={this.updateUnderstanding} type="number"></input>
+                        </Typography>
+                        <br />
+                        <br />
+                        <CardActions style={{ justifyContent: 'center' }}>
+                            <Button className="understanding-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateUnderstanding}>
+                                Next
                         </Button>
-                    </CardActions>
-                </CardContent>
+                        </CardActions>
+                    </CardContent>
+                </Card>
+                    <Results />
             </Card>
         )
     }
