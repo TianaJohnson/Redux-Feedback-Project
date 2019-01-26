@@ -15,16 +15,16 @@ class Understanding extends Component {
         }
     }
 
-    // function to pudate feelings status, not appended until click
+    // function to pudate understanding status, not appended until click
     updateUnderstanding = (event) => {
         this.setState({
             understandingStatus: event.target.value,
         })
     }
-    // click handler to update feelings to append on the Results
-    clickToUpdateFellings = (event) => {
+    // click handler to update understanding to append on the Results
+    clickToUpdateUnderstanding = (event) => {
         const action = {
-            type: 'SET_Understanding',
+            type: 'SET_UNDERSTANDING',
             payload: this.state.understandingStatus,
         };
         this.props.dispatch(action);
@@ -43,16 +43,16 @@ class Understanding extends Component {
             <Card className="understanding-container">
                 <CardContent>
                     <Typography>                  
-                        <h2>How well are you undersatnding the material?</h2>
+                        <h2>How well are you understanding the material?</h2>
                     </Typography>
                     <br/>
-                    <Typography component="p">
+                    <Typography>
                         <input onChange={this.updateUnderstanding} type="number"></input>
                     </Typography>
                     <br/>
                     <br/>
                     <CardActions style={{justifyContent: 'center'}}>
-                        <Button className="understanding-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateFellings}>
+                        <Button className="understanding-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateUnderstanding}>
                             Next
                         </Button>
                     </CardActions>

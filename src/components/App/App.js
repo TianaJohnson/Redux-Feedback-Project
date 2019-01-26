@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import './App.css';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import Feelings from './../Feelings/Feelings.js'; //Feelings page added
 import Understanding from './../Understanding/Understanding.js';//Understanding page added
 import Support from './../Support/Support.js'; //Support page added

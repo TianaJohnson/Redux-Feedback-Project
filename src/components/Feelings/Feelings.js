@@ -46,7 +46,7 @@ class Feelings extends Component {
                         <h2>How are you feeling?</h2>
                     </Typography>
                     <br/>
-                    <Typography component="p">
+                    <Typography>
                         <input onChange={this.updateFeelings} type="number"></input>
                     </Typography>
                     <br/>

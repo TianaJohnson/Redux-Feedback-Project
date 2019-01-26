@@ -1,36 +1,70 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
-import { Typography } from '@material-ui/core';
+import { Typography, CardActions } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+
 
 class Comments extends Component {
+    // this.state.commentStatus
+    constructor(props) {
+        super(props);
+        this.state = {
+            commentStatus: ' '
+        }
+    }
+
+    // function to update comment status, not appended until click
+    updateComment = (event) => {
+        this.setState({
+            commentStatus: event.target.value,
+        })
+    }
+    // click handler to update comment to append on the Results
+    clickToUpdateFSupport = (event) => {
+        const action = {
+            type: 'SET_COMMENT',
+            payload: this.state.commentStatus,
+        };
+        this.props.dispatch(action);
+        this.setState({
+            commentStatus: '',
+        })
+        // this.props.history.push('/');
+    }
+
+
+
 
     render() {
-        return ( 
-            // PLace Holder
-            <Card className="results-card">
-            <CardContent>
-                <Typography component="h2">
-                    {/* Will be updated with input data */}
-                <h2>Review Your FeedBack</h2>
-                </Typography>
-                <Typography component="p">
-                        Fellings: 
-                        </Typography>  
-                        <Typography component="p">
-                        Understanding:                           
-                        </Typography>  
-                        <Typography component="p"> 
-                        Support:   
-                        </Typography> 
-                        <Typography component="p">
-                        Comments:  
-                        </Typography> 
-            </CardContent>
-        </Card>
-        ) // Place Holder
-     }
-
-
+        
+        return (
+            <Card className="comment-container">
+                <CardContent>
+                    <Typography>                  
+                        <h2>Any comments you would like to leave?</h2>
+                    </Typography>
+                    <br/>
+                    <Typography>
+                        comments
+                        <input onChange={this.updateComment} type="text"></input>
+                    </Typography>
+                    <br/>
+                    <br/>
+                    <CardActions style={{justifyContent: 'center'}}>
+                        <Button className="comment-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateFellings}>
+                            Next
+                        </Button>
+                    </CardActions>
+                </CardContent>
+            </Card>
+        )
     }
-export default Comments;
+
+
+}
+const mapReduxStoreToProps = (reduxStore) => {
+    return { reduxStore: reduxStore };
+} //end class component
+export default connect(mapReduxStoreToProps)(Comments)

@@ -23,10 +23,10 @@ class Results extends Component {
                             Understanding: {this.props.reduxStore.understandingReducer}                          
                             </Typography>  
                             <Typography component="p"> 
-                            Support:   
+                            Support: {this.props.reduxStore.supportReducer}
                             </Typography> 
                             <Typography component="p">
-                            Comments:  
+                            Comments: {this.props.reduxStore.commentReducer} 
                             </Typography> 
                             <br/>
                             <CardActions style={{justifyContent: 'center'}}>
