@@ -31,7 +31,7 @@ class Feelings extends Component {
         this.setState({
             feelingsStatus: '',
         })
-        this.props.history.push('/');
+        this.props.history.push('/understanding');
     }
 
 

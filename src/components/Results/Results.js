@@ -20,7 +20,7 @@ class Results extends Component {
                             Fellings: {this.props.reduxStore.feelingsReducer}
                             </Typography>  
                             <Typography component="p">
-                            Understanding:                           
+                            Understanding: {this.props.reduxStore.understandingReducer}                          
                             </Typography>  
                             <Typography component="p"> 
                             Support:   
