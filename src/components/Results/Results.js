@@ -13,9 +13,8 @@ class Results extends Component {
                 <CardContent>
                     <Typography component="h2">
                         {/* Will be updated with input data */}
-                        
-                        </Typography>
                     <h2>Review Your FeedBack</h2>
+                    </Typography>
                     <Typography component="p">
                             Fellings: 
                             </Typography>  
@@ -29,7 +28,6 @@ class Results extends Component {
                             Comments:  
                             </Typography> 
                 </CardContent>
-
             </Card>
 
         ) //end retuen

@@ -5,10 +5,8 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import Feelings from './../Feelings/Feelings.js'; //Feelings page added
 import Understanding from './../Understanding/Understanding.js';//Understanding page added
 import Support from './../Support/Support.js'; //Support page added
-import Comments from './../Comments/Coments.js'; // Comments page added
+import Comments from './../Comments/Comments.js'; // Comments page added
 import Results from './../Results/Results.js';  //Results page added
-
-
 
 
 
@@ -21,11 +19,15 @@ class App extends Component {
           <h4><i>Don't forget it!</i></h4>
         </header>
         <br/>
-            <Feelings/>
-            <Understanding/>
-            <Support/>
-            <Comments/>
+        <Router>
+          <div>
+            <Route exact path="./../Feelings/Feelings.js" component={Feelings} />
+            <Route exact path="./../Understanding/Understanding.js" component={Understanding}/>
+            <Route exact path="./../Support/Support.js" component={Support}/>
+            <Route exact path="./../Comments/Comments.js" component={Comments}/>
             <Results/>
+            </div>
+        </Router>
       </div>
     );
   }
