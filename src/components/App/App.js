@@ -21,10 +21,10 @@ class App extends Component {
         <br/>
         <Router>
           <div>
-            <Route exact path="./../Feelings/Feelings.js" component={Feelings} />
-            <Route exact path="./../Understanding/Understanding.js" component={Understanding}/>
-            <Route exact path="./../Support/Support.js" component={Support}/>
-            <Route exact path="./../Comments/Comments.js" component={Comments}/>
+            <Route exact path="/" component={Feelings} />
+            <Route exact path="/understanding" component={Understanding}/>
+            <Route exact path="/support" component={Support}/>
+            <Route exact path="/comments" component={Comments}/>
             <Results/>
             </div>
         </Router>
