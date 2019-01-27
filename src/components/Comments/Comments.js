@@ -11,13 +11,13 @@ class Comments extends Component {
     constructor(props) {
         super(props);
         this.state = {
-                setComment: ' ',
-                setFeedback: false
-            
-        }
+            setComment: ' ',
+            setFeedback: false
+        
     }
+}
 
-
+    
 
     // function to update comment status, not appended until click
     clickToUpdateComment = (event) => {
@@ -27,53 +27,66 @@ class Comments extends Component {
 
         const commentAction = {
             type: 'SET_COMMENT',
-            payload: this.state.setComment,
+            payload: payload.setComment,                    
         };
         const feedbackAction = {
             type: 'SET_FEEDBACK',
-            payload: this.state.setFeedback,
+            payload: payload.setFeedback,                    
         };
         this.props.dispatch(commentAction);
         this.props.dispatch(feedbackAction);
         this.setState({
             setComment: '',
-            setFeedback: false,
+            setFeedback: true,
         })
         this.props.history.push('/results');
     }
 
-    render() {
 
-        return (
-            <Card className="comment-container">
-                <Card>
-                    <CardContent>
-                        <Typography>
-                            <h2>Any comments you would like to leave?</h2>
-                        </Typography>
-                        <br />
-                        <Typography>
-                            comments
-                        <input onChange={this.updateComment} type="text"></input>
-                        </Typography>
-                        <br />
-                        <br />
-                        <CardActions style={{ justifyContent: 'center' }}>
-                            <Button className="comment-Next-btn"
-                                variant="contained"
-                                color="secondary"
-                                onClick={this.clickToUpdateComment}>
-                                Next
-                        </Button>
-                        </CardActions>
-                    </CardContent>
-                </Card>
-                <Results/>
-            </Card>
-
-        )
+    updateComment = (event) => {
+        this.setState({
+            setComment: event.target.value,
+            setFeedback: true
+        })
     }
 
+   
+
+
+
+
+    render() {
+        
+        return (
+            <Card className="comment-container">
+            <Card>
+                <CardContent>
+                    <Typography>                  
+                        <h2>Any comments you would like to leave?</h2>
+                    </Typography>
+                    <br/>
+                    <Typography>
+                        comments
+                        <input onChange={this.updateComment} type="text"></input>
+                    </Typography>
+                    <br/>
+                    <br/>
+                    <CardActions style={{justifyContent: 'center'}}>
+                        <Button className="comment-Next-btn"
+                                variant="contained" 
+                                color="secondary" 
+                                onClick={this.clickToUpdateComment}>
+                            Next
+                        </Button>
+                    </CardActions>
+                </CardContent>
+            </Card>
+            <Results/>
+            </Card>
+            
+        )
+    }
+    
 
 } //end class component
 const mapReduxStoreToProps = (reduxStore) => {
