@@ -22,7 +22,7 @@ class Support extends Component {
             supportStatus: event.target.value,
         })
     }
-    // click handler to update support to append on the Results
+    // click handler to update support to append on the Results by sending it to the store.
     clickToUpdateSupport = (event) => {
         const action = {
             type: 'SET_SUPPORT',

@@ -6,7 +6,7 @@ import Understanding from './../Understanding/Understanding.js';//Understanding 
 import Support from './../Support/Support.js'; //Support page added
 import Comments from './../Comments/Comments.js'; // Comments page added
 import Results from './../Results/Results.js';  //Results page added
-import Finished from './../Finished/Finished.js';
+import Finished from './../Finished/Finished.js'; // Finished page added
 
 
 

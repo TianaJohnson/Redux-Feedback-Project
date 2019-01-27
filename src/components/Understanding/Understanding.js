@@ -22,7 +22,7 @@ class Understanding extends Component {
             understandingStatus: event.target.value,
         })
     }
-    // click handler to update understanding to append on the Results
+    // click handler to update understanding to append on the Results and send to the store
     clickToUpdateUnderstanding = (event) => {
         const action = {
             type: 'SET_UNDERSTANDING',

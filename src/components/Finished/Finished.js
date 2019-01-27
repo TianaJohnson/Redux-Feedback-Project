@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-// import Card from '@material-ui/core/Card';
-// import { Typography, CardActions } from '@material-ui/core';
-// import CardContent from '@material-ui/core/CardContent';
+import Card from '@material-ui/core/Card';
+import { Typography } from '@material-ui/core';
+import CardContent from '@material-ui/core/CardContent';
 
-class Comments extends Component { 
-
+class Finished extends Component { 
+  // I have tried many thing and nothing will show up on the page.
+  // this page is no different than ant of the others. I cannot figure it out.  
     render(){
         return(
-            <box>
-                <h1>Thanks You.</h1>
-            </box>
-
+            <Card>
+                <CardContent>
+                    <Typography>
+                        Hey
+                    </Typography>
+                </CardContent>
+            </Card>
         )
     }
 
@@ -19,7 +22,4 @@ class Comments extends Component {
 
 
 } // end of class component 
-const mapReduxStoreToProps = (reduxStore) => {
-    return { reduxStore: reduxStore };
-} //end class component
-export default connect(mapReduxStoreToProps)(Comments)
+export default Finished;

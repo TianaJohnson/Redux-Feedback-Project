@@ -5,76 +5,48 @@ import { Typography, CardActions } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+// import Finished from './../Finished/Finished.js';
 
-
+// state set to all variables so I can send it through axios 
 class Results extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            finalFeedback: {
                 feelings: 0,
                 understanding: 0,
                 support: 0,
                 comments: '',
                 finished: false
             }
-
         }
-    }
+        
+    
 
-    // conditionally rendering the submit btn
-    // btnConditional = () => {
-    //     const outPut = null;
-    // if( this.props.reduxStore.setFeedback === false) {
-    //     output = <Button onClick={this.updateFinish} 
-    //             variant="contained"
-    //             color="secondary"
-    //             disabled = {!this.props.reduxStore.setFeedback}>
-    //             Incomplete
-    //             </Button> 
-    // } else if ( this.props.reduxStore.setFeedback === true) {
-    //     output = <Button variant="contained"
-    //             color="primary" >
-    //             Submit
-    //              </Button>
-    // }
-    // }
     // sends used to the finished page
     updateFinish = (event) => {
-        this.setState({
-            finalFeedback: {
+        console.log( 'axios Post')
+        let feedBack = {
                 feelings: this.props.reduxStore.feelingsReducer,
                 understanding: this.props.reduxStore.understandingReducer,
                 support: this.props.reduxStore.supportReducer,
-                comments: this.props.reduxStore.commentReducer,
-                finished: true
-            }
-        })
-        this.props.history.push('/finished');
-    }
-
-
-    onSubmit = () => {
+                comments:this.props.reduxStore.commentReducer,
+                finished:this.props.reduxStore.feedbackReducer
+        };
+        console.log('axios2')
         axios({
             method: 'POST',
             url: '/feedback',
-            data: {
-                finalFeedback: {
-                    feelings: this.props.reduxStore.feelingsReducer,
-                    understanding: this.props.reduxStore.understandingReducer,
-                    support: this.props.reduxStore.supportReducer,
-                    comments: this.props.reduxStore.commentReducer,
-                    finished: true
-                }
-            }
-        }).then(function (response) {
+            data: feedBack
+        }).then((response) => {
             console.log(response);
         }).catch((error) => {
             console.log('server error for axios POST', error);
         })
+        this.props.history.push('/finished');
     }
 
     render() {
+        // conditional rendering to update button status
         let outPut;
         if (this.props.reduxStore.feedbackReducer === false) {
             outPut = (<Button
@@ -90,11 +62,11 @@ class Results extends Component {
                 Submit
                      </Button>)
         }
+    
         return (
             <Card className="results-card">
                 <CardContent>
                     <Typography component="h2">
-                        {JSON.stringify(this.props.reduxStore.commentReducer.setFeedback)}
                         <h2>Review Your FeedBack</h2>
                     </Typography>
                     <Typography component="p">

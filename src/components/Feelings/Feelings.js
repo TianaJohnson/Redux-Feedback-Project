@@ -48,7 +48,7 @@ class Feelings extends Component {
                     </Typography>
                     <br/>
                     <Typography>
-                        <input onChange={this.updateFeelings} type="number"></input>
+                        <input onChange={this.updateFeelings} type="number"></input>    
                     </Typography>
                     <br/>
                     <br/>
