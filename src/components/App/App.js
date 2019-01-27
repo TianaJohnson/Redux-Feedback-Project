@@ -6,6 +6,7 @@ import Understanding from './../Understanding/Understanding.js';//Understanding 
 import Support from './../Support/Support.js'; //Support page added
 import Comments from './../Comments/Comments.js'; // Comments page added
 import Results from './../Results/Results.js';  //Results page added
+import Finished from './../Finished/Finished.js';
 
 
 
@@ -25,7 +26,7 @@ class App extends Component {
             <Route exact path="/support" component={Support}/>
             <Route exact path="/comments" component={Comments}/>
             <Route exact path="/results" component={Results}/>
-            {/* <Results/> */}
+            <Route exact path="/finished" componenet={Finished}/>
             </div>
         </Router>
       </div>

@@ -41,8 +41,8 @@ class Understanding extends Component {
     render() {
 
         return (
-            <Card>
                 <Card className="understanding-container">
+                <Card>
                     <CardContent>
                         <Typography>
                             <h2>How well are you understanding the material?</h2>
@@ -60,8 +60,8 @@ class Understanding extends Component {
                         </CardActions>
                     </CardContent>
                 </Card>
-                    <Results />
-            </Card>
+                <Results/>
+                </Card>
         )
     }
 

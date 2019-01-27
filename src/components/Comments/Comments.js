@@ -11,9 +11,12 @@ class Comments extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            commentStatus: ' '
+            commentStatus: {
+            setComment: ' ',
+            setFeedback: false
         }
     }
+}
 
     // function to update comment status, not appended until click
     updateComment = (event) => {
@@ -26,13 +29,16 @@ class Comments extends Component {
         const action = {
             type: 'SET_COMMENT',
             payload: this.state.commentStatus,
+                     
         };
         this.props.dispatch(action);
         this.setState({
             commentStatus: '',
+            setFeedback: true
         })
-        // this.props.history.push('/');
+        this.props.history.push('/results');
     }
+    
 
 
 
@@ -40,8 +46,8 @@ class Comments extends Component {
     render() {
         
         return (
-            <Card>
             <Card className="comment-container">
+            <Card>
                 <CardContent>
                     <Typography>                  
                         <h2>Any comments you would like to leave?</h2>
@@ -65,7 +71,7 @@ class Comments extends Component {
             
         )
     }
-
+    
 
 }
 const mapReduxStoreToProps = (reduxStore) => {

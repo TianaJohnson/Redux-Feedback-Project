@@ -6,7 +6,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Results from './../Results/Results.js';
 
-
 class Feelings extends Component {
     // this.state.feelingStatus
     constructor(props) {
@@ -61,14 +60,8 @@ class Feelings extends Component {
                 </CardContent>
                 </Card>
                 <Results/>
-            </Card>
+                </Card>
 
-            // Why doesnt this work? I tried as just a div aswell
-            // <Card>
-            //     <CardContent>
-            //         <Results/>
-            //     </CardContent>
-            // </Card>
 
         
         )
