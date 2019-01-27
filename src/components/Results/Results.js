@@ -10,32 +10,10 @@ class Results extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            feedbackFinished: true,
+            feedbackFinished: false,
         }
     }
 
-    // activateBtn = () => {
-    //     const update = null;
-    //     if (this.props.reduxStore.commentReducer.setFeedback === false) {
-    //         update = <Button variant="contained" color="secondary" disabled className="Submit-btn">
-    //             Submit
-    //             </Button>
-    //     } else if (this.props.reduxStore.commentReducer.setFeedback === true) {
-    //         update = <Button variant="contained" color="secondary" onClick="updateFinish">
-    //             Submit
-    //             </Button>
-    //     }
-    // }
-    // disabled button 
-    disableBtn = () => {
-        this.setState({ feedbackFinished: false });
-        console.log('button disabled');
-    }
-    // submit button
-    submitBtn = () => {
-        this.setState({ feedbackFinished: true });
-        console.log('Submit Btn on');
-    }
 
     // sends used to the finished page
     updateFinish = (event) => {
@@ -45,33 +23,16 @@ class Results extends Component {
         })
         this.props.history.push('/finished');
     }
-    // // axios PUT request to update like status
-    // updateStatus = () => {
-    //     axios({
-    //         method: 'PUT',
-    //         url: `/gallery/like/${this.props.item.id}`,
-    //     }).then((response) => {
-    //         console.log('in PUT', response);
-    //         this.props.getGalleryItem();
-    //     }).catch((error) => {
-    //         alert('error in PUT', error);
-    //     })
-    // }
+
+    onSubmit = () => {
+        axios
+    }
+ 
 
 
 
     render() {
-        //conditional rendering
-        const update = null;
-        if (this.props.reduxStore.commentReducer.setFeedback === false) {
-            update = <Button variant="contained" color="secondary" disabled className="Submit-btn">
-                Submit
-                </Button>
-        } else if (this.props.reduxStore.commentReducer.setFeedback === true) {
-            update = <Button variant="contained" color="secondary" onClick="updateFinish">
-                Submit
-                </Button>
-        }
+  
         return (
             <Card className="results-card">
                 <CardContent>
@@ -93,7 +54,11 @@ class Results extends Component {
                     </Typography>
                     <br />
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button onChange={update} variant="contained" color="secondary" disabled className="Submit-btn">
+                        <Button onClick={this.updateFinish} 
+                                variant="contained"
+                                color="secondary"
+                                onChange=
+                                disabled ={!this.props.reduxStore.setFeedback}>
                             Submit
                 </Button>
                     </CardActions>

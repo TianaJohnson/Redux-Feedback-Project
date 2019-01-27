@@ -17,24 +17,40 @@ class Comments extends Component {
         }
     }
 }
+    updateBtn = (event) => {
+        this.setState({
+            commentStatus: {
+                ...this.state.commentStatus,
+                setFeedback: true
+            },
+        });
+    }
 
     // function to update comment status, not appended until click
     updateComment = (event) => {
-        this.setState({
-            commentStatus: event.target.value,
-        })
+        this.setState={
+            commentStatus: {
+                ...this.state.commentStatus,
+                setComment: event.target.value,
+                
+            }
+        }
     }
+    // updateComment = (event) => {
+    //     this.setState({
+    //         commentStatus: event.target.value,
+    //         setFeedback: true
+    //     })
+    // }
     // click handler to update comment to append on the Results
     clickToUpdateComment = (event) => {
         const action = {
             type: 'SET_COMMENT',
-            payload: this.state.commentStatus,
-                     
+            payload: this.state.commentStatus,                    
         };
         this.props.dispatch(action);
         this.setState({
             commentStatus: '',
-            setFeedback: true
         })
         this.props.history.push('/results');
     }
@@ -60,7 +76,11 @@ class Comments extends Component {
                     <br/>
                     <br/>
                     <CardActions style={{justifyContent: 'center'}}>
-                        <Button className="comment-Next-btn" variant="contained" color="secondary" onClick={this.clickToUpdateComment}>
+                        <Button className="comment-Next-btn"
+                                variant="contained" 
+                                color="secondary" 
+                                onClick={this.clickToUpdateComment}
+                                onChange={this.updateBtn}>
                             Next
                         </Button>
                     </CardActions>

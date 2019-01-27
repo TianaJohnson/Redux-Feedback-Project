@@ -40,7 +40,6 @@ const commentReducer = (state = ' ', action) => {
 
 
 
-
 // store of reducers
 const storeInstance = createStore(
     combineReducers({
