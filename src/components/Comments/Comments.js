@@ -11,90 +11,72 @@ class Comments extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            commentStatus: {
-            setComment: ' ',
-            setFeedback: false
+                setComment: ' ',
+                setFeedback: false
+            
         }
-    }
-}
-    updateBtn = (event) => {
-        this.setState({
-            commentStatus: {
-                ...this.state.commentStatus,
-                setFeedback: true
-            },
-        });
     }
 
+
+
     // function to update comment status, not appended until click
-    updateComment = (event) => {
-        this.setState={
-            commentStatus: {
-                ...this.state.commentStatus,
-                setComment: event.target.value,
-                
-            }
-        }
-    }
-    // updateComment = (event) => {
-    //     this.setState({
-    //         commentStatus: event.target.value,
-    //         setFeedback: true
-    //     })
-    // }
-    // click handler to update comment to append on the Results
     clickToUpdateComment = (event) => {
-        const action = {
+        let payload = {};
+        payload.setComment = this.state.setComment;
+        payload.setFeedback = this.state.setFeedback;
+
+        const commentAction = {
             type: 'SET_COMMENT',
-            payload: this.state.commentStatus,                    
+            payload: this.state.setComment,
         };
-        this.props.dispatch(action);
+        const feedbackAction = {
+            type: 'SET_FEEDBACK',
+            payload: this.state.setFeedback,
+        };
+        this.props.dispatch(commentAction);
+        this.props.dispatch(feedbackAction);
         this.setState({
-            commentStatus: '',
+            setComment: '',
+            setFeedback: false,
         })
         this.props.history.push('/results');
     }
-    
-
-
-
 
     render() {
-        
+
         return (
             <Card className="comment-container">
-            <Card>
-                <CardContent>
-                    <Typography>                  
-                        <h2>Any comments you would like to leave?</h2>
-                    </Typography>
-                    <br/>
-                    <Typography>
-                        comments
+                <Card>
+                    <CardContent>
+                        <Typography>
+                            <h2>Any comments you would like to leave?</h2>
+                        </Typography>
+                        <br />
+                        <Typography>
+                            comments
                         <input onChange={this.updateComment} type="text"></input>
-                    </Typography>
-                    <br/>
-                    <br/>
-                    <CardActions style={{justifyContent: 'center'}}>
-                        <Button className="comment-Next-btn"
-                                variant="contained" 
-                                color="secondary" 
-                                onClick={this.clickToUpdateComment}
-                                onChange={this.updateBtn}>
-                            Next
+                        </Typography>
+                        <br />
+                        <br />
+                        <CardActions style={{ justifyContent: 'center' }}>
+                            <Button className="comment-Next-btn"
+                                variant="contained"
+                                color="secondary"
+                                onClick={this.clickToUpdateComment}>
+                                Next
                         </Button>
-                    </CardActions>
-                </CardContent>
+                        </CardActions>
+                    </CardContent>
+                </Card>
+                <Results/>
             </Card>
-            <Results/>
-            </Card>
-            
+
         )
     }
-    
 
-}
+
+} //end class component
 const mapReduxStoreToProps = (reduxStore) => {
     return { reduxStore: reduxStore };
-} //end class component
+}
 export default connect(mapReduxStoreToProps)(Comments)

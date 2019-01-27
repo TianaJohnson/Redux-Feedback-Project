@@ -65,76 +65,59 @@ class Results extends Component {
                     support: this.props.reduxStore.supportReducer,
                     comments: this.props.reduxStore.commentReducer,
                     finished: true
+                }
             }
-            }
-          }).then(function(response){
+        }).then(function (response) {
             console.log(response);
-          }).catch((error) => {
+        }).catch((error) => {
             console.log('server error for axios POST', error);
-          })
-        }
-
-        
-        // image is displayed 
-        // btnOn = () => {
-        //     this.setState({ isClicked: false });
-        //     console.log('image on');
-        // }
-        // description is displayed
-        // btnOff = () => {
-        //     this.setState({ isClicked: true });
-        //     console.log('caption on');
-
-        // }
-
-
-
-
-
-render() {
-    let outPut;
-    if (this.props.reduxStore.setFeedback === false) {
-        outPut = (<Button 
-                        variant="contained"
-                        color="secondary"
-                        disabled={!this.props.reduxStore.setFeedback}>
-                        Incomplete
-                </Button>)
-    } else if (this.props.reduxStore.setFeedback === true) {
-        outPut = (<Button variant="contained"
-                        onClick={this.updateFinish}
-                        color="primary" >
-                        Submit
-                     </Button>)
+        })
     }
-    return (
-        <Card className="results-card">
-            <CardContent>
-                <Typography component="h2">
-                    {JSON.stringify(this.props.reduxStore.commentReducer.setFeedback)}
-                    <h2>Review Your FeedBack</h2>
-                </Typography>
-                <Typography component="p">
-                    Fellings: {this.props.reduxStore.feelingsReducer}
-                </Typography>
-                <Typography component="p">
-                    Understanding: {this.props.reduxStore.understandingReducer}
-                </Typography>
-                <Typography component="p">
-                    Support: {this.props.reduxStore.supportReducer}
-                </Typography>
-                <Typography component="p">
-                    Comments: {this.props.reduxStore.commentReducer}
-                </Typography>
-                <br />
-                <CardActions style={{ justifyContent: 'center' }}>
-                    {outPut}
-                </CardActions>
-            </CardContent>
-        </Card>
 
-    ) //end return
-} // end render
+    render() {
+        let outPut;
+        if (this.props.reduxStore.feedbackReducer === false) {
+            outPut = (<Button
+                variant="contained"
+                color="secondary"
+                disabled>
+                Incomplete
+                </Button>)
+        } else if (this.props.reduxStore.feedbackReducer === true) {
+            outPut = (<Button variant="contained"
+                onClick={this.updateFinish}
+                color="primary" >
+                Submit
+                     </Button>)
+        }
+        return (
+            <Card className="results-card">
+                <CardContent>
+                    <Typography component="h2">
+                        {JSON.stringify(this.props.reduxStore.commentReducer.setFeedback)}
+                        <h2>Review Your FeedBack</h2>
+                    </Typography>
+                    <Typography component="p">
+                        Fellings: {this.props.reduxStore.feelingsReducer}
+                    </Typography>
+                    <Typography component="p">
+                        Understanding: {this.props.reduxStore.understandingReducer}
+                    </Typography>
+                    <Typography component="p">
+                        Support: {this.props.reduxStore.supportReducer}
+                    </Typography>
+                    <Typography component="p">
+                        Comments: {this.props.reduxStore.commentReducer}
+                    </Typography>
+                    <br />
+                    <CardActions style={{ justifyContent: 'center' }}>
+                        {outPut}
+                    </CardActions>
+                </CardContent>
+            </Card>
+
+        ) //end return
+    } // end render
 
 
 
