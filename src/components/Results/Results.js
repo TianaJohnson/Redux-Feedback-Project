@@ -42,10 +42,10 @@ class Results extends Component {
             data: feedBack
         }).then((response) => {
             console.log(response);
+            this.props.history.push('/finished');
         }).catch((error) => {
             console.log('server error for axios POST', error);
         })
-        this.props.history.push('/finished');
     }
 
     render() {
