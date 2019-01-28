@@ -26,7 +26,7 @@ class App extends Component {
             <Route exact path="/support" component={Support} />
             <Route exact path="/comments" component={Comments} />
             <Route exact path="/results" component={Results} />
-            <Route exact path="/finished" componenet={Finished} />
+            <Route exact path="/finished" component={Finished} />
           </div>
         </Router>
       </div>

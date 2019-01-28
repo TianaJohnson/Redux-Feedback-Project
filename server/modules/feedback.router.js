@@ -19,8 +19,8 @@ const pool = require('../modules/pool');
         const newData = req.body;
         console.log('in post', newData);
         
-        let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
-                         VALUES ($1, $2, $3, $4);`;
+        let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments", "date")
+                         VALUES ($1, $2, $3, $4, $5);`;
         pool.query(queryText, [newData.feeling, newData.understanding, newData.support, newData.comments]).then((response) => {
             console.log(response);
             res.sendStatus(201);

@@ -12,11 +12,13 @@ class Results extends Component {
     constructor(props) {
         super(props);
         this.state = {
-                feeling: 0,
+                feelings: 0,
                 understanding: 0,
                 support: 0,
                 comments: '',
-                finished: false
+                finished: false,
+                date:''
+                
             }
         }
         
@@ -26,10 +28,12 @@ class Results extends Component {
     updateFinish = (event) => {
         console.log( 'axios Post')
         let feedBack = {
-                feeling: this.props.reduxStore.feelingsReducer,
+                feelings: this.props.reduxStore.feelingsReducer,
                 understanding: this.props.reduxStore.understandingReducer,
                 support: this.props.reduxStore.supportReducer,
-                comments:this.props.reduxStore.commentReducer
+                comments:this.props.reduxStore.commentReducer,
+                date:''  // date sent but never used in the actual input data
+            
         };
         console.log('axios2')
         axios({
