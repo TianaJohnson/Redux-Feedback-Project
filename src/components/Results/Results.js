@@ -12,7 +12,7 @@ class Results extends Component {
     constructor(props) {
         super(props);
         this.state = {
-                feelings: 0,
+                feeling: 0,
                 understanding: 0,
                 support: 0,
                 comments: '',
@@ -26,11 +26,10 @@ class Results extends Component {
     updateFinish = (event) => {
         console.log( 'axios Post')
         let feedBack = {
-                feelings: this.props.reduxStore.feelingsReducer,
+                feeling: this.props.reduxStore.feelingsReducer,
                 understanding: this.props.reduxStore.understandingReducer,
                 support: this.props.reduxStore.supportReducer,
-                comments:this.props.reduxStore.commentReducer,
-                finished:this.props.reduxStore.feedbackReducer
+                comments:this.props.reduxStore.commentReducer
         };
         console.log('axios2')
         axios({
